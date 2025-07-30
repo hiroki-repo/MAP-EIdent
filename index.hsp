@@ -1,0 +1,1237 @@
+//MAP-E Ident v1.0
+//(C) 2025 Gocaine Project
+#module
+#define ctype ipv4tohex(%1=0,%2=0,%3=0,%4=0) ((%1<<0)|(%2<<8)|(%3<<16)|(%4<<24))
+#define ctype betole(%1=0) ((((%1>>0)&0xFF)<<24)|(((%1>>8)&0xFF)<<16)|(((%1>>16)&0xFF)<<8)|(((%1>>24)&0xFF)<<0))
+#define ctype betole16(%1=0) ((((%1>>0)&0xFF)<<8)|(((%1>>8)&0xFF)<<0))
+#deffunc getipv6pffromipv4 int prm_0,int prm_1,var ipv6array
+sdim ipv6array,16
+//OCN(OCN Virtual Connect)
+if betole(prm_0)>=betole(ipv4tohex(153,240,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,243,255,255)){
+lpoke ipv6array,0,0x50400024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0xFF)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(122,26,0,0)) & betole(prm_0)<=betole(ipv4tohex(122,26,127,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0x1F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,146,64,0)) & betole(prm_0)<=betole(ipv4tohex(114,146,127,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0020+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,148,192,0)) & betole(prm_0)<=betole(ipv4tohex(114,148,255,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0030+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,150,192,0)) & betole(prm_0)<=betole(ipv4tohex(114,150,255,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0040+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,163,64,0)) & betole(prm_0)<=betole(ipv4tohex(114,163,191,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0050+(((betole(prm_0)>>10)&0x1F)-0x10)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,172,192,0)) & betole(prm_0)<=betole(ipv4tohex(114,172,255,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0080+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,177,64,0)) & betole(prm_0)<=betole(ipv4tohex(114,177,127,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0090+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,0,64,0)) & betole(prm_0)<=betole(ipv4tohex(118,0,127,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x00a0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,7,64,0)) & betole(prm_0)<=betole(ipv4tohex(118,7,127,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x00b0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(123,225,192,0)) & betole(prm_0)<=betole(ipv4tohex(123,225,255,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,134,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,134,63,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0010+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,139,128,0)) & betole(prm_0)<=betole(ipv4tohex(153,139,191,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0020+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,151,64,0)) & betole(prm_0)<=betole(ipv4tohex(153,151,127,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0030+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,8,192,0)) & betole(prm_0)<=betole(ipv4tohex(118,8,255,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x00c0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,9,0,0)) & betole(prm_0)<=betole(ipv4tohex(118,9,63,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x00d0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(123,218,64,0)) & betole(prm_0)<=betole(ipv4tohex(123,218,127,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x00e0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(123,220,128,0)) & betole(prm_0)<=betole(ipv4tohex(123,220,191,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x00f0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,170,64,0)) & betole(prm_0)<=betole(ipv4tohex(153,170,127,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0040+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,170,192,0)) & betole(prm_0)<=betole(ipv4tohex(153,170,255,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0050+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(61,127,128,0)) & betole(prm_0)<=betole(ipv4tohex(61,127,159,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0060+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,146,0,0)) & betole(prm_0)<=betole(ipv4tohex(114,146,31,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0068+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,146,128,0)) & betole(prm_0)<=betole(ipv4tohex(114,146,159,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0070+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,148,64,0)) & betole(prm_0)<=betole(ipv4tohex(114,148,96,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0078+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,148,160,0)) & betole(prm_0)<=betole(ipv4tohex(114,148,191,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0080+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,149,0,0)) & betole(prm_0)<=betole(ipv4tohex(114,149,31,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0088+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,150,160,0)) & betole(prm_0)<=betole(ipv4tohex(114,150,191,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0090+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,158,0,0)) & betole(prm_0)<=betole(ipv4tohex(114,158,31,255)){
+lpoke ipv6array,0,0x52400024
+wpoke ipv6array,4,0x0098+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,167,64,0)) & betole(prm_0)<=betole(ipv4tohex(114,167,127,255)){
+lpoke ipv6array,0,0x51400024
+wpoke ipv6array,4,0x0070+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,162,128,0)) & betole(prm_0)<=betole(ipv4tohex(114,162,159,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,163,0,0)) & betole(prm_0)<=betole(ipv4tohex(114,163,31,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0008+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,165,224,0)) & betole(prm_0)<=betole(ipv4tohex(114,165,255,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0010+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,167,192,0)) & betole(prm_0)<=betole(ipv4tohex(114,167,223,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0018+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,177,128,0)) & betole(prm_0)<=betole(ipv4tohex(114,177,159,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0020+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(114,178,224,0)) & betole(prm_0)<=betole(ipv4tohex(114,178,255,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0028+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,1,0,0)) & betole(prm_0)<=betole(ipv4tohex(118,1,31,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0030+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,3,192,0)) & betole(prm_0)<=betole(ipv4tohex(118,3,223,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0038+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,6,64,0)) & betole(prm_0)<=betole(ipv4tohex(118,6,95,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0040+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,7,160,0)) & betole(prm_0)<=betole(ipv4tohex(118,7,223,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0048+(((betole(prm_0)>>10)&0x0F)-8)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,9,128,0)) & betole(prm_0)<=betole(ipv4tohex(118,9,159,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0060+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,22,128,0)) & betole(prm_0)<=betole(ipv4tohex(118,22,159,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0068+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(122,16,0,0)) & betole(prm_0)<=betole(ipv4tohex(122,16,31,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0070+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(123,220,0,0)) & betole(prm_0)<=betole(ipv4tohex(123,220,31,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0078+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(118,9,64,0)) & betole(prm_0)<=betole(ipv4tohex(118,9,95,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0058+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,173,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,173,255,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x0080+((betole(prm_0)>>10)&0x3F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,238,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,238,255,255)){
+lpoke ipv6array,0,0x53400024
+wpoke ipv6array,4,0x00c0+((betole(prm_0)>>10)&0x3F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,239,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,239,255,255)){
+lpoke ipv6array,0,0x50410024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0x3F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,252,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,252,255,255)){
+lpoke ipv6array,0,0x50410024
+wpoke ipv6array,4,0x0040+((betole(prm_0)>>10)&0x3F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(123,222,96,0)) & betole(prm_0)<=betole(ipv4tohex(123,222,127,255)){
+lpoke ipv6array,0,0x50410024
+wpoke ipv6array,4,0x0080+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(123,225,96,0)) & betole(prm_0)<=betole(ipv4tohex(123,225,127,255)){
+lpoke ipv6array,0,0x50410024
+wpoke ipv6array,4,0x0088+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(123,225,160,0)) & betole(prm_0)<=betole(ipv4tohex(123,225,191,255)){
+lpoke ipv6array,0,0x50410024
+wpoke ipv6array,4,0x0090+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(124,84,96,0)) & betole(prm_0)<=betole(ipv4tohex(124,84,127,255)){
+lpoke ipv6array,0,0x50410024
+wpoke ipv6array,4,0x0098+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,12,128,0)) & betole(prm_0)<=betole(ipv4tohex(180,12,159,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0080+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,26,96,0)) & betole(prm_0)<=betole(ipv4tohex(180,26,96,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0088+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,26,160,0)) & betole(prm_0)<=betole(ipv4tohex(180,26,255,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0090+(((betole(prm_0)>>10)&0x1F)-8)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,30,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,30,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00a0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,31,96,0)) & betole(prm_0)<=betole(ipv4tohex(180,31,127,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00a8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,46,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,46,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00c0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,48,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,48,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00c8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,50,192,0)) & betole(prm_0)<=betole(ipv4tohex(180,50,223,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00d0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,53,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,53,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00d8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,32,64,0)) & betole(prm_0)<=betole(ipv4tohex(180,32,95,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00b0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,34,160,0)) & betole(prm_0)<=betole(ipv4tohex(180,34,191,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00b8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(218,230,128,0)) & betole(prm_0)<=betole(ipv4tohex(218,230,159,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00e0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(219,161,64,0)) & betole(prm_0)<=betole(ipv4tohex(219,161,95,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00e8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(220,96,64,0)) & betole(prm_0)<=betole(ipv4tohex(220,96,95,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00f0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(220,99,0,0)) & betole(prm_0)<=betole(ipv4tohex(220,99,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x00f8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,60,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,60,255,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0x3F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,139,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,139,127,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x0040+((betole(prm_0)>>10)&0x1F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(219,161,128,0)) & betole(prm_0)<=betole(ipv4tohex(219,161,255,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x0060+((betole(prm_0)>>10)&0x1F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(124,84,128,0)) & betole(prm_0)<=betole(ipv4tohex(124,84,159,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x00c0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(124,98,192,0)) & betole(prm_0)<=betole(ipv4tohex(124,98,223,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x00c8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,187,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,187,63,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x0080+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,191,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,191,63,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x0090+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,12,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,12,63,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x00a0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,13,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,13,63,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x00b0+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(124,100,0,0)) & betole(prm_0)<=betole(ipv4tohex(124,100,31,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x00d0+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(124,100,224,0)) & betole(prm_0)<=betole(ipv4tohex(124,100,255,255)){
+lpoke ipv6array,0,0x51410024
+wpoke ipv6array,4,0x00d8+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,165,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,165,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,165,160,0)) & betole(prm_0)<=betole(ipv4tohex(153,165,191,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0008+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,171,224,0)) & betole(prm_0)<=betole(ipv4tohex(153,171,255,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0010+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,175,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,175,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0018+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(220,106,32,0)) & betole(prm_0)<=betole(ipv4tohex(220,106,63,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0040+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(220,106,64,0)) & betole(prm_0)<=betole(ipv4tohex(220,106,95,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0070+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,181,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,181,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0020+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,183,224,0)) & betole(prm_0)<=betole(ipv4tohex(153,183,255,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0028+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,184,128,0)) & betole(prm_0)<=betole(ipv4tohex(153,184,159,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0030+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,187,224,0)) & betole(prm_0)<=betole(ipv4tohex(153,187,255,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0038+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,191,192,0)) & betole(prm_0)<=betole(ipv4tohex(153,191,223,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0060+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,188,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,188,31,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0048+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,190,128,0)) & betole(prm_0)<=betole(ipv4tohex(153,190,159,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0050+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,191,64,0)) & betole(prm_0)<=betole(ipv4tohex(153,191,95,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0058+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,194,96,0)) & betole(prm_0)<=betole(ipv4tohex(153,194,127,255)){
+lpoke ipv6array,0,0x53410024
+wpoke ipv6array,4,0x0068+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,16,0,0)) & betole(prm_0)<=betole(ipv4tohex(180,16,63,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0000+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,29,128,0)) & betole(prm_0)<=betole(ipv4tohex(180,29,191,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0010+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(180,59,64,0)) & betole(prm_0)<=betole(ipv4tohex(180,59,127,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0020+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(219,161,64,0)) & betole(prm_0)<=betole(ipv4tohex(219,161,127,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0030+((betole(prm_0)>>10)&0x0F)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,131,96,0)) & betole(prm_0)<=betole(ipv4tohex(153,131,127,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0050+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,131,128,0)) & betole(prm_0)<=betole(ipv4tohex(153,131,159,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0060+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,132,128,0)) & betole(prm_0)<=betole(ipv4tohex(153,132,159,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0068+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,129,160,0)) & betole(prm_0)<=betole(ipv4tohex(153,129,191,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0040+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,130,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,130,31,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0048+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,134,64,0)) & betole(prm_0)<=betole(ipv4tohex(153,134,95,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0070+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,137,0,0)) & betole(prm_0)<=betole(ipv4tohex(153,137,31,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0078+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,139,192,0)) & betole(prm_0)<=betole(ipv4tohex(153,139,223,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0080+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,151,32,0)) & betole(prm_0)<=betole(ipv4tohex(153,151,63,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0088+((betole(prm_0)>>10)&0x07)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+if betole(prm_0)>=betole(ipv4tohex(153,156,96,0)) & betole(prm_0)<=betole(ipv4tohex(153,156,159,255)){
+lpoke ipv6array,0,0x52410024
+wpoke ipv6array,4,0x0090+(((betole(prm_0)>>10)&0x0F)-8)|(((betole(prm_0)>>2)&0xFF)<<8)
+poke ipv6array,6,((prm_1&0x3F)<<0)|((betole(prm_0)&3)<<6)
+}
+//BIGLOBE(v6 Option)
+if betole(prm_0)>=betole(ipv4tohex(125,196,208,0)) & betole(prm_0)<=betole(ipv4tohex(125,196,215,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0000+(((prm_0>>16)&0xFFFF)&0xFFF7)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,198,140,0)) & betole(prm_0)<=betole(ipv4tohex(125,198,147,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0008+(((prm_0>>16)&0xFFFF)&0xFFF7)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,198,212,0)) & betole(prm_0)<=betole(ipv4tohex(125,198,215,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0010+(((prm_0>>16)&0xFFFF)&0xFFF3)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,198,244,0)) & betole(prm_0)<=betole(ipv4tohex(125,198,247,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0014+(((prm_0>>16)&0xFFFF)&0xFFF3)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,131,104,0)) & betole(prm_0)<=betole(ipv4tohex(122,131,107,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0018+(((prm_0>>16)&0xFFFF)&0xFFF3)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,195,20,0)) & betole(prm_0)<=betole(ipv4tohex(125,195,23,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x001c+(((prm_0>>16)&0xFFFF)&0xFFF3)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(133,203,160,0)) & betole(prm_0)<=betole(ipv4tohex(133,203,191,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0020+(((prm_0>>16)&0xFFFF)&0xFF1F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(133,209,0,0)) & betole(prm_0)<=betole(ipv4tohex(133,209,31,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0040+(((prm_0>>16)&0xFFFF)&0xFF1F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(133,204,192,0)) & betole(prm_0)<=betole(ipv4tohex(133,204,223,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0060+(((prm_0>>16)&0xFFFF)&0xFF1F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(133,203,224,0)) & betole(prm_0)<=betole(ipv4tohex(133,203,255,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x0080+(((prm_0>>16)&0xFFFF)&0xFF1F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,194,192,0)) & betole(prm_0)<=betole(ipv4tohex(125,194,207,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00a0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,239,128,0)) & betole(prm_0)<=betole(ipv4tohex(119,239,143,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00b0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,194,32,0)) & betole(prm_0)<=betole(ipv4tohex(125,194,47,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00c0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,195,24,0)) & betole(prm_0)<=betole(ipv4tohex(125,195,31,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00d0+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,130,192,0)) & betole(prm_0)<=betole(ipv4tohex(122,130,199,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00d8+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,135,64,0)) & betole(prm_0)<=betole(ipv4tohex(122,135,71,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00e0+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,192,240,0)) & betole(prm_0)<=betole(ipv4tohex(125,192,247,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00e8+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,193,176,0)) & betole(prm_0)<=betole(ipv4tohex(125,193,183,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00f0+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,130,176,0)) & betole(prm_0)<=betole(ipv4tohex(122,130,183,255)){
+lpoke ipv6array,0,0x827a0424
+wpoke ipv6array,4,0x00f8+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,131,24,0)) & betole(prm_0)<=betole(ipv4tohex(122,131,39,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0000+((((prm_0>>16)&0xFFFF)-8)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,243,112,0)) & betole(prm_0)<=betole(ipv4tohex(119,243,119,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0010+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(219,107,136,0)) & betole(prm_0)<=betole(ipv4tohex(219,107,143,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0018+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(220,144,224,0)) & betole(prm_0)<=betole(ipv4tohex(220,144,231,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0020+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,194,64,0)) & betole(prm_0)<=betole(ipv4tohex(125,194,71,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0028+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(221,171,40,0)) & betole(prm_0)<=betole(ipv4tohex(221,171,47,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0030+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(110,233,80,0)) & betole(prm_0)<=betole(ipv4tohex(110,233,87,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0038+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,241,184,0)) & betole(prm_0)<=betole(ipv4tohex(119,241,191,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0040+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,243,56,0)) & betole(prm_0)<=betole(ipv4tohex(119,243,63,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0048+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,199,8,0)) & betole(prm_0)<=betole(ipv4tohex(125,199,15,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0050+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,196,96,0)) & betole(prm_0)<=betole(ipv4tohex(125,196,103,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0058+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,130,104,0)) & betole(prm_0)<=betole(ipv4tohex(122,130,119,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0060+((((prm_0>>16)&0xFFFF)-8)&0xFF1F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(49,129,152,0)) & betole(prm_0)<=betole(ipv4tohex(49,129,159,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0070+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(49,129,192,0)) & betole(prm_0)<=betole(ipv4tohex(49,129,199,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0078+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(49,129,120,0)) & betole(prm_0)<=betole(ipv4tohex(49,129,127,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0080+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(221,170,40,0)) & betole(prm_0)<=betole(ipv4tohex(221,170,47,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0088+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,239,108,0)) & betole(prm_0)<=betole(ipv4tohex(60,239,111,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0090+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,236,24,0)) & betole(prm_0)<=betole(ipv4tohex(60,236,27,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0094+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,130,120,0)) & betole(prm_0)<=betole(ipv4tohex(122,130,123,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x0098+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,236,84,0)) & betole(prm_0)<=betole(ipv4tohex(60,236,87,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x009c+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,239,180,0)) & betole(prm_0)<=betole(ipv4tohex(60,239,187,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00a0+((((prm_0>>16)&0xFFFF)-4)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,110,136,0)) & betole(prm_0)<=betole(ipv4tohex(118,110,139,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00a8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,242,136,0)) & betole(prm_0)<=betole(ipv4tohex(119,242,139,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00ac+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,188,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,191,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00b0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,204,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,207,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00b4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,134,52,0)) & betole(prm_0)<=betole(ipv4tohex(122,134,55,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00b8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,244,60,0)) & betole(prm_0)<=betole(ipv4tohex(119,244,63,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00bc+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,243,100,0)) & betole(prm_0)<=betole(ipv4tohex(119,243,103,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00c0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(221,170,236,0)) & betole(prm_0)<=betole(ipv4tohex(221,170,239,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00c4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(221,171,48,0)) & betole(prm_0)<=betole(ipv4tohex(221,171,51,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00c8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,36,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,39,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00cc+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,195,236,0)) & betole(prm_0)<=betole(ipv4tohex(125,195,239,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00d0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,236,20,0)) & betole(prm_0)<=betole(ipv4tohex(60,236,23,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00d4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,108,76,0)) & betole(prm_0)<=betole(ipv4tohex(118,108,79,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00d8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,110,108,0)) & betole(prm_0)<=betole(ipv4tohex(118,110,115,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00dc+((((prm_0>>16)&0xFFFF)-4)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,111,88,0)) & betole(prm_0)<=betole(ipv4tohex(118,111,91,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00e4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,111,228,0)) & betole(prm_0)<=betole(ipv4tohex(118,111,231,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00e8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,111,236,0)) & betole(prm_0)<=betole(ipv4tohex(118,111,239,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00ec+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,241,148,0)) & betole(prm_0)<=betole(ipv4tohex(119,241,151,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00f0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,242,124,0)) & betole(prm_0)<=betole(ipv4tohex(119,242,127,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00f4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,194,28,0)) & betole(prm_0)<=betole(ipv4tohex(125,194,31,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00f8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,194,96,0)) & betole(prm_0)<=betole(ipv4tohex(125,194,99,255)){
+lpoke ipv6array,0,0x837a0424
+wpoke ipv6array,4,0x00fc+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(133,204,128,0)) & betole(prm_0)<=betole(ipv4tohex(133,204,191,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x0000+(((prm_0>>16)&0xFFFF)&0xFF3F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(133,203,192,0)) & betole(prm_0)<=betole(ipv4tohex(133,203,223,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x0040+(((prm_0>>16)&0xFFFF)&0xFF1F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(133,203,0,0)) & betole(prm_0)<=betole(ipv4tohex(133,203,95,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x0060+(((prm_0>>16)&0xFFFF)&0xFF1F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(221,171,112,0)) & betole(prm_0)<=betole(ipv4tohex(221,171,127,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00a0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,195,184,0)) & betole(prm_0)<=betole(ipv4tohex(125,195,187,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00b0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,196,216,0)) & betole(prm_0)<=betole(ipv4tohex(125,196,219,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00b4+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(221,171,108,0)) & betole(prm_0)<=betole(ipv4tohex(221,171,111,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00b8+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(219,107,152,0)) & betole(prm_0)<=betole(ipv4tohex(219,107,155,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00bc+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,239,128,0)) & betole(prm_0)<=betole(ipv4tohex(60,239,140,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00c0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,110,80,0)) & betole(prm_0)<=betole(ipv4tohex(118,110,95,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00d0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,194,176,0)) & betole(prm_0)<=betole(ipv4tohex(125,194,191,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00e0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,239,112,0)) & betole(prm_0)<=betole(ipv4tohex(60,239,127,255)){
+lpoke ipv6array,0,0x867a0424
+wpoke ipv6array,4,0x00f0+(((prm_0>>16)&0xFFFF)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,195,56,0)) & betole(prm_0)<=betole(ipv4tohex(125,195,63,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0000+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,196,32,0)) & betole(prm_0)<=betole(ipv4tohex(125,196,39,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0008+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,108,80,0)) & betole(prm_0)<=betole(ipv4tohex(118,108,87,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0010+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,111,80,0)) & betole(prm_0)<=betole(ipv4tohex(118,111,87,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0018+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(218,227,176,0)) & betole(prm_0)<=betole(ipv4tohex(218,227,183,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0020+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,239,208,0)) & betole(prm_0)<=betole(ipv4tohex(60,239,215,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0028+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,109,56,0)) & betole(prm_0)<=betole(ipv4tohex(118,109,63,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0030+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,131,88,0)) & betole(prm_0)<=betole(ipv4tohex(122,131,103,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0038+((((prm_0>>16)&0xFFFF)-8)&0xFF0F)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,130,48,0)) & betole(prm_0)<=betole(ipv4tohex(122,130,55,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0048+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,198,224,0)) & betole(prm_0)<=betole(ipv4tohex(125,198,231,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0050+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,243,104,0)) & betole(prm_0)<=betole(ipv4tohex(119,243,111,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0058+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,109,152,0)) & betole(prm_0)<=betole(ipv4tohex(118,109,159,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0060+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,111,104,0)) & betole(prm_0)<=betole(ipv4tohex(118,111,111,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0068+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,239,48,0)) & betole(prm_0)<=betole(ipv4tohex(119,239,55,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0070+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,130,16,0)) & betole(prm_0)<=betole(ipv4tohex(122,130,23,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0078+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,196,128,0)) & betole(prm_0)<=betole(ipv4tohex(125,196,135,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0080+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,131,48,0)) & betole(prm_0)<=betole(ipv4tohex(122,131,55,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0088+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,134,104,0)) & betole(prm_0)<=betole(ipv4tohex(122,134,111,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0090+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,208,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,215,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x0098+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(220,144,192,0)) & betole(prm_0)<=betole(ipv4tohex(220,144,199,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00a0+(((prm_0>>16)&0xFFFF)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(110,233,48,0)) & betole(prm_0)<=betole(ipv4tohex(110,233,51,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00a8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(122,131,84,0)) & betole(prm_0)<=betole(ipv4tohex(122,131,87,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00ac+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(111,169,152,0)) & betole(prm_0)<=betole(ipv4tohex(111,169,155,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00b0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,241,132,0)) & betole(prm_0)<=betole(ipv4tohex(119,241,139,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00b4+((((prm_0>>16)&0xFFFF)-4)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(119,244,68,0)) & betole(prm_0)<=betole(ipv4tohex(119,244,71,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00bc+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,236,92,0)) & betole(prm_0)<=betole(ipv4tohex(60,236,95,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00c0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,237,108,0)) & betole(prm_0)<=betole(ipv4tohex(60,237,111,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00c4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,12,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,15,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00c8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,44,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,47,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00cc+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,216,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,219,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00d0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(60,238,232,0)) & betole(prm_0)<=betole(ipv4tohex(60,238,235,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00d4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(49,129,72,0)) & betole(prm_0)<=betole(ipv4tohex(49,129,75,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00d8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(110,233,4,0)) & betole(prm_0)<=betole(ipv4tohex(110,233,7,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00dc+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(110,233,192,0)) & betole(prm_0)<=betole(ipv4tohex(110,233,195,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00e0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(110,233,20,0)) & betole(prm_0)<=betole(ipv4tohex(110,233,27,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00e4+((((prm_0>>16)&0xFFFF)-4)&0xFF07)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,193,4,0)) & betole(prm_0)<=betole(ipv4tohex(125,193,7,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00ec+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,193,148,0)) & betole(prm_0)<=betole(ipv4tohex(125,193,151,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00f0+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,110,76,0)) & betole(prm_0)<=betole(ipv4tohex(118,110,79,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00f4+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(118,110,96,0)) & betole(prm_0)<=betole(ipv4tohex(118,110,99,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00f8+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+if betole(prm_0)>=betole(ipv4tohex(125,193,152,0)) & betole(prm_0)<=betole(ipv4tohex(125,193,155,255)){
+lpoke ipv6array,0,0x877a0424
+wpoke ipv6array,4,0x00fc+(((prm_0>>16)&0xFFFF)&0xFF03)
+poke ipv6array,6,prm_1
+}
+//JPNE(KDDI)&BIGLOBE(v6 Option)
+switch prm_0&0x0000FEFF
+case ipv4tohex(106,72,0,0)
+lpoke ipv6array,0,0x10000b24|(((prm_0>>8)&1)<<24)
+wpoke ipv6array,4,(((prm_0>>16)&0xFFFF)&0xFFFF)
+poke ipv6array,6,prm_1
+swbreak
+case ipv4tohex(14,8,0,0)
+lpoke ipv6array,0,0x12000b24|(((prm_0>>8)&1)<<24)
+wpoke ipv6array,4,(((prm_0>>16)&0xFFFF)&0xFFFF)
+poke ipv6array,6,prm_1
+swbreak
+case ipv4tohex(14,10,0,0)
+lpoke ipv6array,0,0x50020b24|(((prm_0>>8)&1)<<24)
+wpoke ipv6array,4,(((prm_0>>16)&0xFFFF)&0xFFFF)
+poke ipv6array,6,prm_1
+swbreak
+case ipv4tohex(14,12,0,0)
+lpoke ipv6array,0,0x52020b24|(((prm_0>>8)&1)<<24)
+wpoke ipv6array,4,(((prm_0>>16)&0xFFFF)&0xFFFF)
+poke ipv6array,6,prm_1
+swbreak
+case ipv4tohex(133,200,0,0)
+lpoke ipv6array,0,0x807a0424|(((prm_0>>8)&1)<<24)
+wpoke ipv6array,4,(((prm_0>>16)&0xFFFF)&0xFFFF)
+poke ipv6array,6,prm_1
+swbreak
+case ipv4tohex(133,206,0,0)
+lpoke ipv6array,0,0x847a0424|(((prm_0>>8)&1)<<24)
+wpoke ipv6array,4,(((prm_0>>16)&0xFFFF)&0xFFFF)
+poke ipv6array,6,prm_1
+swbreak
+swend
+return ipv6array
+#global
+#module
+#defcfunc getipv6str var prm_0
+ipv6zerocount=0,0,0,0,0,0,0,0,0:ipv6zerocountxyz=0,0,0,0,0,0,0,0,0:ipv6zerocountx=0:ipv6zerocountxst=0:ipv6cutx=0:ipv6cutxtmp=-1:ipv6cutx=8
+repeat 8:if wpeek(prm_0,0+(cnt*2))=0{ipv6zerocountxst=1}:if ipv6zerocountxst=1{if wpeek(prm_0,0+(cnt*2))=0{if ipv6zerocount(ipv6zerocountx)=0{ipv6zerocountxyz(ipv6zerocountx)=cnt}:ipv6zerocount(ipv6zerocountx)++}else{ipv6zerocountx++}}:loop
+repeat 8
+ipv6cutxtmp2=ipv6zerocount(cnt)
+repeat 8:if ipv6zerocount(cnt)>ipv6cutxtmp & ipv6zerocount(cnt)>ipv6cutxtmp2{ipv6cutxtmp=ipv6zerocount(cnt):ipv6cutx=cnt}:loop
+loop
+ipv6str="":repeat 8:if ipv6zerocountxyz(ipv6cutx)<=cnt && cnt<(ipv6zerocountxyz(ipv6cutx)+ipv6zerocount(ipv6cutx)) && ipv6cutx!=8{if ipv6zerocountxyz(ipv6cutx)=cnt{ipv6str+=":"}}else{if peek(prm_0,0+(cnt*2))!=0{ipv6str+=strf("%x",peek(prm_0,0+(cnt*2)))}:if peek(prm_0,0+(cnt*2))=0{ipv6str+=strf("%x",peek(prm_0,1+(cnt*2)))}else{ipv6str+=strf("%02x",peek(prm_0,1+(cnt*2)))}:if cnt!=7{ipv6str+=":"}}:loop
+if strmid(ipv6str,0,1)=":" & ((peek(ipv6str,1)>='0' & peek(ipv6str,1)<='9')|(peek(ipv6str,1)>='a' & peek(ipv6str,1)<='f')|strlen(ipv6str)=1){ipv6str=":"+ipv6str}
+return ipv6str
+#global
+
+dircmdlines=""+dir_cmdline
+repeat:if strmid(dircmdlines,0,1)=" "{dircmdlines=strmid(dircmdlines,1,strlen(dircmdlines))}else{break}:loop
+ipaddrandport(0)="0.0.0.0"
+ipaddrandport(1)="4096"
+split dircmdlines,":",ipaddrandport
+split ipaddrandport(0),".",ipaddrstx
+poke ipaddr,0,int(ipaddrstx(0))
+poke ipaddr,1,int(ipaddrstx(1))
+poke ipaddr,2,int(ipaddrstx(2))
+poke ipaddr,3,int(ipaddrstx(3))
+wpoke port,0,int(ipaddrandport(1))
+
+psid=(port>>4)&0xFF
+getipv6pffromipv4 ipaddr,psid,ipv6pfx
+eastorwest=0:psidsize=8:psidoffset=0
+mes "IPv4 Prefix: "+getipv6str(ipv6pfx)+"/56"
+mes "VNE:",1
+if (lpeek(ipv6pfx,0)&0xF8FFFFFF)=0x807a0424{mes "BIGLOBE":psidoffset=4:if (peek(ipv6pfx,3)&4){eastorwest=1}else{eastorwest=0}}else{
+if (lpeek(ipv6pfx,0)&0xC0FFFFFF)=0x00000b24 | (lpeek(ipv6pfx,0)&0xC0FFFFFF)=0x40020b24{mes "JPIX(Formely:JPNE) [KDDI]":psidoffset=4:if (peek(ipv6pfx,2)&2){eastorwest=1}else{eastorwest=0}}else{
+if (lpeek(ipv6pfx,0)&0x00F0FFFF)=0x00200024{mes "SOFTBANK":if (lpeek(ipv6pfx,0)&0x00F0FFFF)=0x00200024{if (wpeek(ipv6pfx,2)&0xFFF)=0x5006{eastorwest=1}else{if (wpeek(ipv6pfx,2)&0xFFF)=0x1004{eastorwest=0}else{eastorwest=2}}}else{eastorwest=2}}else{
+if (lpeek(ipv6pfx,0)&0x00FCFFFF)=0x00400024{mes "OCN(NTT Communications)":if (lpeek(ipv6pfx,0)&0x00FCFFFF)=0x00400024{if (peek(ipv6pfx,3)&0xF0)=0x50{psidoffset=6:psidsize=6:if (peek(ipv6pfx,2)&1){eastorwest=1}else{eastorwest=0}}else{eastorwest=2}}else{eastorwest=2}}else{
+if (lpeek(ipv6pfx,0)&0xF8FFFFFF)=0x404d0124{mes "FNJ(CYBERHOME)":if (peek(ipv6pfx,3)&4){eastorwest=1}else{eastorwest=0}}else{
+if (lpeek(ipv6pfx,0)&0xE0FFFFFF)=0x600f0120{mes "ARTERIA(X-PASS)":if (peek(ipv6pfx,3)&0x18)!=0x10{eastorwest=2}else{if (peek(ipv6pfx,3)&4){eastorwest=1}else{eastorwest=0}}}else{
+if (lpeek(ipv6pfx,0)&0xF8FFFFFF)=0x80650524{mes "ASAHI-NET":if (peek(ipv6pfx,3)&4){eastorwest=1}else{eastorwest=0}}else{
+if (lpeek(ipv6pfx,0)&0x00FFFFFF)=0x00c00b24{mes "RAKUTEN Mobile":if (peek(ipv6pfx,3)&0xF4)=0xc4{if (peek(ipv6pfx,3)&8){eastorwest=1}else{eastorwest=0}}else{eastorwest=2}}else{
+if (lpeek(ipv6pfx,0)&0x00FCFFFF)=0x00000824 | (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0xa8010424{mes "NGNEAST ONLY":eastorwest=0}else{
+if (lpeek(ipv6pfx,0)&0x00F8FFFF)=0x00a00120{mes "NGNWEST ONLY":eastorwest=1}else{
+if (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0x70040120 | (lpeek(ipv6pfx,0)&0x00FFFFFF)=0x00700026{mes "Hurricane Electric":eastorwest=2}else{
+if (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0x50050120 | (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0x78090120{mes "Cogent":eastorwest=2}else{
+if (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0xf8020120{mes "SINET":eastorwest=2}else{
+if (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0x40020120{mes "IIJ":eastorwest=2}else{
+if (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0x68020120 | (lpeek(ipv6pfx,0)&0x00FEFFFF)=0x00000f24{mes "KDDI":eastorwest=2}else{
+if (lpeek(ipv6pfx,0)&0x00F8FFFF)=0x00b00120{mes "HINET":eastorwest=2}else{
+if (lpeek(ipv6pfx,0)&0xFCFFFFFF)=0x00000026{mes "SPRINT(Cogent)":eastorwest=2}else{
+if (lpeek(ipv6pfx,0)&0xFFFFFFFF)=0xe8020120{mes "DTI":eastorwest=2}else{
+mes "Unknown ISP":eastorwest=2
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+if (hspstat&16)=0 {pos 0,ginfo(23)}
+mes "NTT AREA:",1
+if eastorwest>=2{
+	mes "Unknown AREA"
+}else{
+if eastorwest{mes "WEST"}else{mes "EAST"}
+}
+if (hspstat&16)=0 {pos 0,ginfo(23)}
+mes "PSID:"+str(psid&((1<<psidsize)-1))
+sdim ceipv6pfx,16
+memcpy ceipv6pfx,ipv6pfx,16,0,0
+lpoke ceipv6pfx,9,lpeek(ipaddr,0)
+lpoke ceipv6pfx,14,(psid&((1<<psidsize)-1))
+mes "CE:["+getipv6str(ceipv6pfx)+"]"
+mes "OPENABLE PORTS:",1
+opptmp=0
+repeat ((1<<psidoffset)-1)
+wpoke opptmp,0,(((cnt+1)<<(16 - psidoffset)))|((psid&((1<<psidsize)-1))<<(16-psidoffset-psidsize))
+wpoke opptmp,2,wpeek(opptmp,0)+((1<<(16-psidoffset-psidsize))-1)
+mes str(wpeek(opptmp,0))+"-"+str(wpeek(opptmp,2)),1
+mes " ",1
+if (hspstat&16)=0 {if ginfo(22)>=ginfo(26)-128{mes "":pos 0,ginfo(23)}}
+loop
+mes ""
+if (hspstat&16)=0 {pos 0,ginfo(23)}

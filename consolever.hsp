@@ -1,0 +1,5 @@
+//MAP-E Ident Console Header v1.0
+//(C) 2025 Gocaine Project
+#runtime "hsp3cl"
+#include "index.hsp"
+end
