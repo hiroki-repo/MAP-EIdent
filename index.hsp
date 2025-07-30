@@ -1171,7 +1171,7 @@ wpoke port,0,int(ipaddrandport(1))
 psid=(port>>4)&0xFF
 getipv6pffromipv4 ipaddr,psid,ipv6pfx
 eastorwest=0:psidsize=8:psidoffset=0
-mes "IPv4 Prefix: "+getipv6str(ipv6pfx)+"/56"
+mes "IPv6 Prefix: "+getipv6str(ipv6pfx)+"/56"
 mes "VNE:",1
 if (lpeek(ipv6pfx,0)&0xF8FFFFFF)=0x807a0424{mes "BIGLOBE":psidoffset=4:if (peek(ipv6pfx,3)&4){eastorwest=1}else{eastorwest=0}}else{
 if (lpeek(ipv6pfx,0)&0xC0FFFFFF)=0x00000b24 | (lpeek(ipv6pfx,0)&0xC0FFFFFF)=0x40020b24{mes "JPIX(Formely:JPNE) [KDDI]":psidoffset=4:if (peek(ipv6pfx,2)&2){eastorwest=1}else{eastorwest=0}}else{
@@ -1223,7 +1223,7 @@ sdim ceipv6pfx,16
 memcpy ceipv6pfx,ipv6pfx,16,0,0
 lpoke ceipv6pfx,9,lpeek(ipaddr,0)
 lpoke ceipv6pfx,14,(psid&((1<<psidsize)-1))
-mes "CE:["+getipv6str(ceipv6pfx)+"]"
+mes "CE IPv6:["+getipv6str(ceipv6pfx)+"]"
 mes "OPENABLE PORTS:",1
 opptmp=0
 repeat ((1<<psidoffset)-1)
