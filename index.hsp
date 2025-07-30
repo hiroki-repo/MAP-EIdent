@@ -1235,3 +1235,15 @@ if (hspstat&16)=0 {if ginfo(22)>=ginfo(26)-128{mes "":pos 0,ginfo(23)}}
 loop
 mes ""
 if (hspstat&16)=0 {pos 0,ginfo(23)}
+mes "BR IPv6:[",1
+if (lpeek(ipv6pfx,0)&0xFCFFFFFF)=0x807a0424{mes "2001:260:700:1::1:275",1}else{
+if (lpeek(ipv6pfx,0)&0xFCFFFFFF)=0x847a0424{mes "2001:260:700:1::1:276",1}else{
+if (lpeek(ipv6pfx,0)&0xFCFFFFFF)=0x10000b24 | (lpeek(ipv6pfx,0)&0xFCFFFFFF)=0x50020b24{mes "2404:9200:225:100::64",1}else{
+if (lpeek(ipv6pfx,0)&0xFCFEFFFF)=0x50400024{mes "2001:380:a120::9",1}else{
+mes "::"
+}
+}
+}
+}
+mes "]"
+if (hspstat&16)=0 {pos 0,ginfo(23)}
